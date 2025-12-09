@@ -1,0 +1,217 @@
+.diyara-core-wrap .description {
+	margin-top: 0.25rem;
+	color: #64748b;
+}
+
+.diyara-core-dashboard p {
+	font-size: 14px;
+}
+/* ==========================================================================
+   General layout tweaks for Diyara admin pages
+   ========================================================================== */
+
+.diyara-core-wrap .wp-heading-inline {
+	margin-bottom: 8px;
+}
+
+.diyara-core-wrap .description {
+	color: #6c7781;
+	margin-top: 4px;
+}
+
+/* Give tables a bit more breathing room */
+.diyara-core-wrap table.widefat {
+	margin-top: 10px;
+}
+
+/* ==========================================================================
+   Campaign status badges (Dashboard)
+   ========================================================================== */
+
+.diyara-campaign-status {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 999px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: capitalize;
+	line-height: 1.5;
+	border: 1px solid transparent;
+}
+
+.diyara-campaign-status-active {
+	color: #0a6a0a;
+	background-color: #e5f5e5;
+	border-color: #b6e3b6;
+}
+
+.diyara-campaign-status-paused {
+	color: #aa6708;
+	background-color: #fff4e5;
+	border-color: #f7d9a6;
+}
+
+.diyara-campaign-status-disabled,
+.diyara-campaign-status-inactive {
+	color: #6c7781;
+	background-color: #f3f4f6;
+	border-color: #d8dde4;
+}
+
+/* ==========================================================================
+   Log status badges (Logs page)
+   ========================================================================== */
+
+[class^="diyara-status-"],
+[class*=" diyara-status-"] {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 999px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: capitalize;
+	line-height: 1.5;
+	border: 1px solid transparent;
+}
+
+.diyara-status-published {
+	color: #0a6a0a;
+	background-color: #e5f5e5;
+	border-color: #b6e3b6;
+}
+
+.diyara-status-draft {
+	color: #005f91;
+	background-color: #e1f3ff;
+	border-color: #b3ddff;
+}
+
+.diyara-status-failed {
+	color: #b2071d;
+	background-color: #fdeaea;
+	border-color: #f3b5b5;
+}
+
+.diyara-status-skipped,
+.diyara-status-unknown {
+	color: #6c7781;
+	background-color: #f3f4f6;
+	border-color: #d8dde4;
+}
+
+/* ==========================================================================
+   Settings: main tabs + AI provider sidebar
+   ========================================================================== */
+
+.diyara-settings-wrapper {
+	margin-top: 10px;
+}
+
+/* Reuse WordPress nav-tab styles; we add minimal tweaks */
+.diyara-settings-tabs .nav-tab {
+	outline: 0;
+}
+
+/* Settings panels */
+.diyara-settings-panel {
+	margin-top: 15px;
+}
+
+/* AI layout: sidebar + panel */
+.diyara-ai-settings-layout {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+}
+
+/* Provider sidebar */
+.diyara-ai-providers {
+	min-width: 200px;
+	padding: 10px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.diyara-ai-providers p {
+	margin-top: 0;
+	margin-bottom: 8px;
+	font-size: 13px;
+	color: #2c3338;
+	font-weight: 600;
+}
+
+.diyara-ai-providers .button {
+	display: block;
+	width: 100%;
+	margin-bottom: 5px;
+	text-align: left;
+	justify-content: flex-start;
+}
+
+.diyara-ai-providers .button.active {
+	background-color: #2271b1;
+	border-color: #2271b1;
+	color: #fff;
+}
+
+/* Provider panels (Gemini / OpenAI / Claude / Translate) */
+.diyara-ai-provider-fields .diyara-ai-provider-panel {
+	display: none;
+	padding: 12px 16px;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.diyara-ai-provider-fields .diyara-ai-provider-panel.is-active {
+	display: block;
+}
+
+/* ==========================================================================
+   Tables: minor polish (Dashboard & Logs)
+   ========================================================================== */
+
+.diyara-core-wrap table.widefat th {
+	font-weight: 600;
+}
+
+.diyara-core-wrap table.widefat td,
+.diyara-core-wrap table.widefat th {
+	vertical-align: middle;
+}
+
+.diyara-core-wrap .tablenav.top {
+	margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   Responsive tweaks
+   ========================================================================== */
+
+@media (max-width: 782px) {
+	.diyara-ai-settings-layout {
+		flex-direction: column;
+	}
+
+	.diyara-ai-providers {
+		width: 100%;
+	}
+}
+
+/* Logs: inline message details */
+.diyara-log-msg-cell .diyara-log-msg-full {
+	margin-top: 4px;
+	padding: 6px 8px;
+	background: #f8f9fa;
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+	max-width: 480px;
+	max-height: 140px;
+	overflow: auto;
+	font-size: 11px;
+}
+
+.diyara-log-msg-cell .diyara-log-msg-line {
+	margin: 0 0 2px;
+}
