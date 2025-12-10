@@ -36,7 +36,7 @@ class Admin_Menu {
 		// Dashboard page (top-level).
 		$dashboard_page = new Admin_Page_Dashboard();
 
-		$hook_suffix = add_menu_page(
+		add_menu_page(
 			__( 'Diyara', 'diyara-core' ),
 			__( 'Diyara', 'diyara-core' ),
 			'manage_options',
@@ -45,8 +45,6 @@ class Admin_Menu {
 			'dashicons-admin-site-alt3',
 			58
 		);
-
-		// Store hook suffix if needed later (not required yet).
 
 		// Campaigns page.
 		$campaigns_page = new Admin_Page_Campaigns();
@@ -89,38 +87,38 @@ class Admin_Menu {
 	 * @return void
 	 */
 	public function enqueue_assets( $hook ) {
-		// Our screens will be like:
-		// - toplevel_page_diyara-dashboard
-		// - diyara_page_diyara-campaigns
-		// - diyara_page_diyara-settings
-		// - diyara_page_diyara-logs.
-
+		// Only load on Diyara pages to avoid conflicts.
 		$allowed_hooks = array(
 			'toplevel_page_diyara-dashboard',
 			'diyara_page_diyara-campaigns',
 			'diyara_page_diyara-settings',
 			'diyara_page_diyara-logs',
 		);
+		echo $hook;
 
 		if ( ! in_array( $hook, $allowed_hooks, true ) ) {
 			return;
 		}
 
-		// Admin styles.
+		// Enqueue Main Admin CSS
 		wp_enqueue_style(
 			'diyara-core-admin',
-			DIYARA_CORE_URL . 'assets/css/admin.css',
-			array(),
-			DIYARA_CORE_VERSION
+			DIYARA_CORE_URL . 'assets/css/admin.css'
 		);
 
-		// Admin JS (plain JS, no build tools).
+		// Enqueue Main Admin JS
 		wp_enqueue_script(
 			'diyara-core-admin',
 			DIYARA_CORE_URL . 'assets/js/admin.js',
-			array(),
+			array( 'jquery' ),
 			DIYARA_CORE_VERSION,
 			true
 		);
+
+		// Localize Script for AJAX actions
+		wp_localize_script( 'diyara-core-admin', 'diyara_vars', array(
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'nonce'    => wp_create_nonce( 'diyara_admin_nonce' ),
+		) );
 	}
 }

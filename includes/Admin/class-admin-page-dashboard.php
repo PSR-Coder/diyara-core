@@ -93,7 +93,7 @@ class Admin_Page_Dashboard extends Admin_Page_Base {
 						$last_run = $stats['last_run_at'];
 					}
 					?>
-					<tr>
+					<tr class="diyara-campaign-row-<?php echo esc_attr( $status ); ?>">
 						<td>
 							<a href="<?php echo esc_url( get_edit_post_link( $campaign_id ) ); ?>">
 								<?php echo esc_html( get_the_title( $c ) ); ?>
